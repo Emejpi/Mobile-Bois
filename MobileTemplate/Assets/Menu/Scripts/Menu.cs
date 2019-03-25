@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -59,9 +60,8 @@ public class Menu : MonoBehaviour
                 if(progress >= 1f) {
                     text.SetActive(true);
                 }
-                if(progress >= 1f && Input.touchCount > 0) {
+                if(progress >= 1f && (Input.touchCount > 0 || Input.GetMouseButton(0))) {
                     operation.allowSceneActivation = true;
-                    StartCoroutine(FadeIn());
                 }
                 
                 yield return null;
